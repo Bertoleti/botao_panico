@@ -62,7 +62,10 @@ void fill_adv_packet(tsCustomAdv *pData, uint8 flags, uint16 companyID, uint8 da
   /* calculate total length of advertising data*/
   pData->data_size = 3 + (1 + pData->len_manuf) + (1 + pData->len_uuid) + (1 + pData->len_name);
 
-  gecko_cmd_le_gap_set_adv_parameters (100, 100, 7);
+  /* Set advertising parameters. 100ms advertisement interval. All channels used.
+   * The first two parameters are minimum and maximum advertising interval, both in
+   * units of (milliseconds * 1.6). The third parameter '7' sets advertising on all channels. */
+  gecko_cmd_le_gap_set_adv_parameters (160, 160, 7);
 
   /* set custom advertising payload */
   gecko_cmd_le_gap_set_adv_data (0, pData->data_size, (const uint8 *) pData);

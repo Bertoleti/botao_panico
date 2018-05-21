@@ -74,4 +74,8 @@
  * Alterado o tempo do pacote de advertising para 100ms
  */
 
+/*1.2.0.2 - 21/05/2018
+ * Corrigido o tempo de advertisement para 100ms
+ */
+
 #endif /* USER_HISTORICO_REVISOES_H_ */
