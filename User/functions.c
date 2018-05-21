@@ -80,7 +80,7 @@ unsigned char status_bluetooth;
 uint8_t buffer [50];
 uint8_t mac_address[20];
 
-unsigned char FW_VERSION[7] = "1.0.2.0";
+unsigned char FW_VERSION[7] = "1.0.2.1";
 
 
 struct gecko_msg_system_get_bt_address_rsp_t *pResp;

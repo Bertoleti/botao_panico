@@ -70,4 +70,8 @@
 
 /*comecei usar git uhulll */
 
+/*1.0.2.1 - 21/05/2018
+ * Alterado o tempo do pacote de advertising para 100ms
+ */
+
 #endif /* USER_HISTORICO_REVISOES_H_ */
