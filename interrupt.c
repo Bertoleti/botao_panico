@@ -146,6 +146,8 @@ void CRYOTIMER_IRQHandler(void)			//Timer principal do sistema
 	  USART_STR((uint8_t*)"Timeout_to_connect atingido... \r\n");
 #endif
 	  ciclos_tentativas++;
+	  sprintf((char*)buffer,"Ciclo numero: %d \r\n",ciclos_tentativas);
+	  USART_STR((uint8_t*)buffer);
 	}
     }
 
@@ -250,7 +252,6 @@ void CRYOTIMER_IRQHandler(void)			//Timer principal do sistema
 	  status_botao = SLEEP_MODE;
 	  dorme(BLUETOOTH);
 	  dorme(MICROCONTROLADOR);
-
 	}
     }
 
