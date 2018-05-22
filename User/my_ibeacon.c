@@ -180,8 +180,8 @@ void bcnSetupAdvBeaconing (unsigned char mode)
     /* The Beacon's measured RSSI at 1 meter distance in dBm */
     /* 0xC3 is -61dBm */
     //0xC3};  	//0bdm
-    //0xCA};	//10dbm
-      cont_pressed};//envia o ID (numeração da "pressionada")
+    0xCA};	//10dbm
+      //cont_pressed};//envia o ID (numeração da "pressionada")
 
 
   uint8_t len = sizeof(bcnBeaconAdvData);

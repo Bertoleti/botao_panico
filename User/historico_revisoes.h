@@ -78,4 +78,11 @@
  * Corrigido o tempo de advertisement para 100ms
  */
 
+/*1.0.2.3 - 22/05/2018
+ * Voltou o TXPower no beacon...
+ * cimplementado o custom adversiting para o beacon
+ *
+ *
+ */
+
 #endif /* USER_HISTORICO_REVISOES_H_ */

@@ -28,7 +28,8 @@
 #include "eeprom_emulation.h"
 #include "custom_adv.h"
 
-tsCustomAdv mData;	/* our custom advertising data stored here */
+tsCustomPairingAdv mData;	/* our custom advertising data stored here */
+tsCustomPanicAdv nData;
 
 void TIMER0_IRQHandler(void)			//Timer 20us
 {
@@ -189,7 +190,18 @@ void CRYOTIMER_IRQHandler(void)			//Timer principal do sistema
 	{
 	  //gecko_cmd_le_gap_set_mode (le_gap_general_discoverable,le_gap_undirected_connectable);	//Habilita a conexão via bluetooth
 	  //Inicializa advertising do bluetooth com o nome SB e com o status do botão já no adertisement, além do UUID de serviço
-	  fill_adv_packet(&mData, 0x06, 0x02FF, (uint8)(ciclos_tentativas), "SB");
+	  //fill_adv_packet(&mData, 0x06, 0x02FF, (uint8)(ciclos_tentativas), "SB");
+
+	  if(status_botao & PANIC_MODE)
+	    {
+	      fill_adv_panic_packet(&nData, 0x06, 0x02FF, ciclos_tentativas, my_major + 1, my_minor);
+	    }
+	  else if (status_botao & PAIRING_MODE)
+	    {
+	      fill_adv_pairing_packet(&mData, 0x06, "SafeBtn");
+	      //gecko_cmd_le_gap_set_mode (le_gap_general_discoverable,le_gap_undirected_connectable);	//Habilita a conexão via bluetooth
+	    }
+
 #ifdef COM_DEBUG_SERIAL
 	  USART_STR((uint8_t*)"LIGOU BLUETOOTH POR TIMEOUT...\r\n");
 #endif
