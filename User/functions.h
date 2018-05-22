@@ -106,6 +106,7 @@ extern unsigned char flag_bateria_baixa;
 extern uint8_t mac_address[20];
 extern uint8_t buffer[50];
 extern unsigned char conexoes_de_terceiros;
+extern unsigned char ciclos_tentativas;
 
 
 

@@ -76,8 +76,6 @@
 
 /*1.2.0.2 - 21/05/2018
  * Corrigido o tempo de advertisement para 100ms
- *
- * teste do n
  */
 
 #endif /* USER_HISTORICO_REVISOES_H_ */

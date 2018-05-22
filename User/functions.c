@@ -75,6 +75,7 @@ unsigned short int cont_vibra_motor;
 unsigned short int cont_pressed;
 unsigned char flag_bateria_baixa = 0;
 unsigned char conexoes_de_terceiros;
+unsigned char ciclos_tentativas;
 
 unsigned char status_bluetooth;
 uint8_t buffer [50];
