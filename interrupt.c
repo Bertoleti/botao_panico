@@ -192,10 +192,12 @@ void CRYOTIMER_IRQHandler(void)			//Timer principal do sistema
 	  //Inicializa advertising do bluetooth com o nome SB e com o status do botão já no adertisement, além do UUID de serviço
 	  //fill_adv_packet(&mData, 0x06, 0x02FF, (uint8)(ciclos_tentativas), "SB");
 
+	  //Em panico eu somo 1 no major e envio o advertising de panico
 	  if(status_botao & PANIC_MODE)
 	    {
 	      fill_adv_panic_packet(&nData, 0x06, 0x02FF, ciclos_tentativas, my_major + 1, my_minor);
 	    }
+	  //Em pairing mode não manda o custom data advertising.. manda só o UUID e o nome SafeBtn
 	  else if (status_botao & PAIRING_MODE)
 	    {
 	      fill_adv_pairing_packet(&mData, 0x06, "SafeBtn");
@@ -224,6 +226,9 @@ void CRYOTIMER_IRQHandler(void)			//Timer principal do sistema
 	}
       if(timeout_to_sleep == TIMEOUT_DORME_BLUETOOTH)
 	{
+#ifdef COM_DEBUG_SERIAL
+	      USART_STR((uint8_t*)"Fiz dormir o Bluetooth.. \r\n");
+#endif
 	  dorme(BLUETOOTH);
 	}
 

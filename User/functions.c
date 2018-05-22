@@ -654,7 +654,7 @@ void trata_string_bluetooth(void)
 	{
 	  if (received_string[4] == '1')
 	    {
-
+	      conexoes_de_terceiros++;
 	      flag_vibra_motor = 1;
 #ifdef COM_DEBUG_SERIAL
 	      USART_STR ((uint8_t*) "VBR1_RECEBIDO...\r\n");
@@ -726,7 +726,7 @@ void trata_string_bluetooth(void)
 	        sprintf((char*)buffer,"CON:%d \r\n",conexoes_de_terceiros);
 	        unsigned short int len = strlen((const char*)buffer);
 	        gecko_cmd_gatt_server_send_characteristic_notification(_conn_handle, gattdb_gatt_ssp_data, len, buffer);	//Envia byte por bluetooth
-	        conexoes_de_terceiros++;
+	        //conexoes_de_terceiros++;
     }
 }
 
